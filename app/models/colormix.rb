@@ -1,0 +1,2 @@
+class Colormix < ApplicationRecord
+end

@@ -1,0 +1,37 @@
+<%= form_with(model: colormix, local: true) do |form| %>
+  <% if colormix.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(colormix.errors.count, "error") %> prohibited this colormix from being saved:</h2>
+
+      <ul>
+      <% colormix.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :red %>
+    <%= form.number_field :red, id: :colormix_red %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gree %>
+    <%= form.number_field :gree, id: :colormix_gree %>
+  </div>
+
+  <div class="field">
+    <%= form.label :blue %>
+    <%= form.number_field :blue, id: :colormix_blue %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finalcolor %>
+    <%= form.text_field :finalcolor, id: :colormix_finalcolor %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

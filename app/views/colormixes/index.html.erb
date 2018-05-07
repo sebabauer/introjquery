@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Colormixes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Red</th>
+      <th>Gree</th>
+      <th>Blue</th>
+      <th>Finalcolor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @colormixes.each do |colormix| %>
+      <tr>
+        <td><%= colormix.red %></td>
+        <td><%= colormix.gree %></td>
+        <td><%= colormix.blue %></td>
+        <td><%= colormix.finalcolor %></td>
+        <td><%= link_to 'Show', colormix %></td>
+        <td><%= link_to 'Edit', edit_colormix_path(colormix) %></td>
+        <td><%= link_to 'Destroy', colormix, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Colormix', new_colormix_path %>
+
+<input type="text" value="75" class="dial">
+
+<script>
+$(function() {
+  $(".dial").knob();
+});
+</script>
+
+<input type="text" value="75" class="dial">
+
+<script>
+$(function() {
+  $(".dial").knob();
+});
+</script>
+
+<input type="text" value="75" class="dial">
+
+<script>
+$(function() {
+  $(".dial").knob();
+});
+</script>

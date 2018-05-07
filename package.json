@@ -1,0 +1,8 @@
+{
+  "name": "ponelecolor",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jquery-knob": "^1.2.11"
+  }
+}
