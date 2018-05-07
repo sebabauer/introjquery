@@ -33,42 +33,58 @@
 
 <%= link_to 'New Colormix', new_colormix_path %> -->
 
-<input id="red" type="text" value="0" class="red">
+<input type="text" value="0" class="dial" name="red">
 
-<input id="green" type="text" value="75" class="green">
+<input  type="text" value="0" class="dial" name="green">
 
-<input id="blue" type="text" value="75" class="blue">
+<input  type="text" value="0" class="dial" name="blue">
+
+<h1>
+  RGB (<span class="colors" id="red">0</span>, <span class="colors" id="green">0</span>, <span class="colors" id="blue">0</span>)
+
+</h1>
+
+<div class="square">
+
+</div>
+
+<style>
+  .square{
+    height: 300px;
+    width: 600px;
+    border: 1px solid black;
+
+  }
+</style>
 
 <script>
-var red = 0;
-$(function() {
-  $(".red").knob({
+$(document).on('turbolinks:load',function() {
+  $(".dial").knob({
     'min':0,
-    'max':255,
-    'change' : function (v) { red == v;}
-   }
-  );
+    'max':256,
+    'change' : function (v) {
+      $("span#"+this.$.attr('name')).html(Math.round(Number(v)));
+
+      red = $("#red").html();
+      green = $("#green").html();
+      blue = $("#blue").html();
+
+      $(".square").css("background", "rgb("+red+","+green+","+blue+")");
+      console.log("rgb("+red+","+green+","+blue+")");
+
+    }
+
+  });
 });
+//
+// $(".colors").change(function(){
+//   red = $("#red").html();
+//   green = $("#green").html();
+//   blue = $("#blue").html();
+//   $(".square").css("background-color", "rgb("+red+","+green+","+blue")
+//   ");
+// }
+// );
 
-$(function() {
-  $(".green").knob({
-    'min':0,
-    'max':255,
-    'change' : function (v) { console.log(v);}
-   }
-  );
 
-});
-
-$(function() {
-  $(".blue").knob({
-    'min':0,
-    'max':255,
-    'change' : function (v) { console.log(v);}
-   }
-  );
-
-});
-
-console.log(red);
 </script>
